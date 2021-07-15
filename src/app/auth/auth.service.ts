@@ -9,10 +9,10 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(formValue: any) {
-    this.http.post("http://localhost:8787/login", {"email": formValue.email, "password": formValue.password});
+    return this.http.post("http://localhost:8787/login", {"email": formValue.email, "password": formValue.password});
   }
 
   addUser(formValue: any) {
-    this.http.post("http://localhost:8787/addUser", formValue);
+    return this.http.post("http://localhost:8787/addUser", formValue);
   }
 }
