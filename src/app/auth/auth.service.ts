@@ -15,4 +15,13 @@ export class AuthService {
   addUser(formValue: any) {
     return this.http.post("http://localhost:8787/addUser", formValue);
   }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  logOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
+  }
 }
