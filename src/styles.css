@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.whiteDiv{
+	background-color: rgba(248, 248, 248, 0.938);
+	padding-top: 10px;
+	padding-bottom: 40px;
+	padding-left: 50px;
+	padding-right: 50px;
+	margin-top: 80px;
+	border-radius: 25px;
+	border: solid 1px rgb(184, 184, 184);
+	box-shadow: 4px 4px 20px rgb(68, 68, 68);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

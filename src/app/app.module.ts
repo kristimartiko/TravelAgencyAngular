@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
+import { TripComponent } from './trip/trip.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     AuthComponent,
-    LoginComponent
+    LoginComponent,
+    TripComponent
   ],
   imports: [
     BrowserModule,
