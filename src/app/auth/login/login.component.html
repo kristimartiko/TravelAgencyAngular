@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="container" style="border: 1px solid white; background-color: rgba(255, 255, 255, 0.938); border-radius: 25px; margin-top: 130px;">
+    <div class="signup-form">
+        <form [formGroup] = "loginForm" (ngSubmit)="onSubmit()">
+            <h2 class="text-center">Log in</h2>
+            <p class="hint-text text-center">Log into your account!</p>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" formControlName="email" placeholder="Email">
+                <span
+                *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched"
+                 class="help-block red">Please enter a valid email!</span>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" formControlName="password" placeholder="Password">
+                <span
+                *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched"
+                 class="help-block red">Please enter a valid password!</span>
+            </div>
+            <div class="form-group">
+                <button mat-raised-button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!loginForm.valid">Log in</button>
+            </div>
+        </form>
+    <br>
+</div>
