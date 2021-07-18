@@ -1,0 +1,38 @@
+<button class="btn btn-primary btn-sm pull-right" (click)="onClose()">X</button>
+<h2 mat-dialog-title style="text-align: center;">Add Trip!</h2>
+<mat-dialog-content class="create-form">
+    <form [formGroup]="tripAddForm">
+        <div class="form-group">
+            <label for="reason">Trip Reason: </label>
+            <select formControlName="tripReason">
+                <option value="Meeting">Meeting</option>
+                <option value="Training">Training</option>
+                <option value="Project">Project</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Event">Event</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Trip Description" formControlName="tripDescription">
+            <span *ngIf="!tripAddForm.get('tripDescription').valid && tripAddForm.get('tripDescription').touched" class="help-block red">Please Enter a valid Description!</span>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter From Place" formControlName="fromPlace">
+            <span *ngIf="!tripAddForm.get('fromPlace').valid && tripAddForm.get('fromPlace').touched" class="help-block red">Please Enter a valid From Place!</span>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter To Place" formControlName="toPlace"> 
+            <span *ngIf="!tripAddForm.get('toPlace').valid && tripAddForm.get('toPlace').touched" class="help-block red">Please Enter a valid To Place!</span>
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" placeholder="Enter Departure Date" formControlName="departureDate">
+            <span *ngIf="!tripAddForm.get('departureDate').valid && tripAddForm.get('departureDate').touched" class="help-block red">Please Enter a valid Departure Date!</span>
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" placeholder="Enter Arrival Date" formControlName="arrivalDate">
+            <span *ngIf="!tripAddForm.get('arrivalDate').valid && tripAddForm.get('arrivalDate').touched" class="help-block red">Please Enter a valid Arrival Date!</span>
+        </div>
+    </form>
+</mat-dialog-content>
+<button mat-raised-button type="button" (click)="onSubmit()" class="btn btn-primary">Add Trip!</button>

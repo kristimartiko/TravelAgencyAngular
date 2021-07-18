@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddTripComponent } from './add-trip/add-trip.component';
+import { EditTripComponent } from './edit-trip/edit-trip.component';
 import { Trip } from './trip.module';
 import { TripService } from './trip.service';
 
@@ -11,12 +14,48 @@ export class TripComponent implements OnInit {
 
   trips: Trip[] = [];
   
-  constructor(private tripService: TripService) { }
+  constructor(private tripService: TripService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.tripService.getTrips().subscribe((trips: Trip[]) => {
       this.trips = trips;
     })
+  }
+
+  editTrip(trip: Trip) {
+    let dialogRef = this.dialog.open(EditTripComponent, {
+      width: '40%',
+      data: trip
+    });
+
+    dialogRef.afterClosed().subscribe((change) => {
+      if(change) {
+        this.tripService.getTrips().subscribe((trips: Trip[]) => {
+          this.trips = trips;
+        })
+      }
+    })
+  }
+
+  newTrip() {
+    let dialogRef = this.dialog.open(AddTripComponent, {
+      width: '40%'
+    });
+    
+    dialogRef.afterClosed().subscribe((change) => {
+      if(change) {
+        this.tripService.getTrips().subscribe((trips: Trip[]) => {
+          this.trips = trips;
+        })
+      }
+    })
+  }
+
+  deleteTrip(index: number) {
+    this.tripService.deleteTrip(this.trips[index]).subscribe(() => {
+      this.trips.splice(index, 1);
+    });
   }
 
 }

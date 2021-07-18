@@ -1,0 +1,23 @@
+<button class="btn btn-primary btn-sm pull-right" (click)="onClose()">X</button>
+<h2 mat-dialog-title style="text-align: center;">Add User!</h2>
+<mat-dialog-content class="create-form">
+    <form [formGroup]="userAddForm">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter User FirstName" formControlName="firstName">
+            <span *ngIf="!userAddForm.get('firstName').valid && userAddForm.get('firstName').touched" class="help-block red">Please Enter a valid Description!</span>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter User LastName" formControlName="lastName">
+            <span *ngIf="!userAddForm.get('lastName').valid && userAddForm.get('lastName').touched" class="help-block red">Please Enter a valid From Place!</span>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter User Email" formControlName="email"> 
+            <span *ngIf="!userAddForm.get('email').valid && userAddForm.get('email').touched" class="help-block red">Please Enter a valid To Place!</span>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter User Password" formControlName="password">
+            <span *ngIf="!userAddForm.get('password').valid && userAddForm.get('password').touched" class="help-block red">Please Enter a valid Departure Date!</span>
+        </div>
+    </form>
+</mat-dialog-content>
+<button mat-raised-button type="button" (click)="onSubmit()" class="btn btn-primary">Add User!</button>

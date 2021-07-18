@@ -8,33 +8,23 @@ import { Trip } from './trip.module';
 })
 export class TripService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getTrips() {
-    return this.http.get<Trip[]>("http://localhost:8787/trips"); 
+  getTrips()  {
+    return this.http.get("http://localhost:8787/trips");
   }
 
-  getApprovedTrips() {
-    return this.http.get<Trip[]>("http://localhost:8787/approvedTrips");
+  updateTrip(trip: Trip) {
+    return this.http.put(`http://localhost:8787/updateTrip${trip.tripId}`, trip);
   }
 
-  createTrip(formValue: any): Observable<Trip>{
-    return this.http.post<Trip>("http://localhost:8787/createTrip", formValue);
+  addTrip(trip: Trip) {
+    console.log(trip);
+    return this.http.post("http://localhost:8787/createTrip", trip);
   }
 
-  updateTrip(t: Trip) {
-    return this.http.put<Trip>(`http://localhost:8787/updateTrip${t.tripId}`, t);
-  }
-
-  deleteTrip(t: Trip) {
-    return this.http.delete(`http://localhost:8787/deleteTrip${t.tripId}`);
-  } 
-
-  sendApproval(t: Trip) {
-    return this.http.get(`http://localhost:8787/sendApproval${t.tripId}`);
-  }
-
-  getStatus(t: Trip) {
-    return this.http.get(`http://localhost:8787/status${t.tripId}`);
+  deleteTrip(trip: Trip) {
+    console.log(trip);
+    return this.http.delete(`http://localhost:8787/deleteTrip${trip.tripId}`);
   }
 }

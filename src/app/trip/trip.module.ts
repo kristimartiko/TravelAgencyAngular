@@ -1,18 +1,14 @@
-import { User } from "../auth/user.module";
-import { TripStatusEnum } from "../shared/tripStatusEnum.module";
-
 export class Trip {
     public tripId: number;
-    public tripReason: String;
-    public tripDescription: String;
-    public fromPlace: String;
-    public toPlace: String;
+    public tripReason: string;
+    public tripDescription: string;
+    public fromPlace: string;
+    public toPlace: string;
     public departureDate: Date;
     public arrivalDate: Date;
-    public user: User;
-    public status: TripStatusEnum
+    public user_id: number;
 
-    public Trip(tripReason: String, tripDescription: String, fromPlace: String, toPlace: String, departureDate: Date, arrivalDate: Date) {
+    constructor(tripReason: string, tripDescription: string, fromPlace: string, toPlace: string, departureDate: Date, arrivalDate: Date) {
         this.tripReason = tripReason;
         this.tripDescription = tripDescription;
         this.fromPlace = fromPlace;
