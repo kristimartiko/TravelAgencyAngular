@@ -78,4 +78,10 @@ export class TripComponent implements OnInit {
       return true;
     } else return false;
   }
+
+  isCreated(index: number) {
+    this.tripService.getStatus(this.trips[index]).subscribe(response => {
+      console.log(response);
+    }) 
+  }
 }

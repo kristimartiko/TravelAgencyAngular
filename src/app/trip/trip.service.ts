@@ -51,4 +51,8 @@ export class TripService {
   declineTrip(trip: Trip) {
     return this.http.get(`http://localhost:8787/declineTrip${trip.tripId}`);
   }
+
+  getStatus(trip: Trip) {
+    return this.http.get(`http://localhost:8787/status${trip.tripId}`);
+  }
 }
