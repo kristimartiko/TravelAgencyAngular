@@ -24,4 +24,10 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('name');
   }
+
+  isLoggedIn() {
+    if(localStorage.getItem('token') !== null) {
+      return true;
+    } else return false;
+  }
 }

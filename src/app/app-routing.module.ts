@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { TripsmanagmentComponent } from "./admin/tripsmanagment/tripsmanagment.component";
 import { UsermanagmentComponent } from "./admin/usermanagment/usermanagment.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { TripComponent } from "./trip/trip.component";
@@ -9,7 +10,8 @@ const routes: Routes = [
     {path: 'trips', component: TripComponent},
     {path: 'login', component: LoginComponent},
     { path: 'admin', children:[
-        {path:'users', component: UsermanagmentComponent}
+        {path:'users', component: UsermanagmentComponent},
+        {path:'trips', component: TripsmanagmentComponent}
     ]}
 ];
 

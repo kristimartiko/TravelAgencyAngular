@@ -16,6 +16,9 @@ import { AdminComponent } from './admin/admin.component';
 import { UsermanagmentComponent } from './admin/usermanagment/usermanagment.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddUserComponent } from './admin/usermanagment/add-user/add-user.component';
+import { TripsmanagmentComponent } from './admin/tripsmanagment/tripsmanagment.component';
+import { AddTripComponent } from './trip/add-trip/add-trip.component';
+import { EditTripComponent } from './trip/edit-trip/edit-trip.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { AddUserComponent } from './admin/usermanagment/add-user/add-user.compon
     TripComponent,
     AdminComponent,
     UsermanagmentComponent,
-    AddUserComponent
+    AddUserComponent,
+    TripsmanagmentComponent,
+    AddTripComponent,
+    EditTripComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +48,9 @@ import { AddUserComponent } from './admin/usermanagment/add-user/add-user.compon
     useClass: TokenInterceptorService,
     multi: true
   }],
+  entryComponents: [
+    MatDialogModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
