@@ -15,23 +15,23 @@
         </div>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter Trip Description" formControlName="tripDescription">
-            <span *ngIf="!tripAddForm.get('tripDescription').valid && tripAddForm.get('tripDescription').touched" class="help-block red">Please Enter a valid Description!</span>
+            <div *ngIf="!tripAddForm.get('tripDescription').valid && tripAddForm.get('tripDescription').touched" class="alert alert-danger">Please Enter a valid Description!</div>
         </div>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter From Place" formControlName="fromPlace">
-            <span *ngIf="!tripAddForm.get('fromPlace').valid && tripAddForm.get('fromPlace').touched" class="help-block red">Please Enter a valid From Place!</span>
+            <div *ngIf="!tripAddForm.get('fromPlace').valid && tripAddForm.get('fromPlace').touched" class="alert alert-danger">Please Enter a valid From Place!</div>
         </div>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter To Place" formControlName="toPlace"> 
-            <span *ngIf="!tripAddForm.get('toPlace').valid && tripAddForm.get('toPlace').touched" class="help-block red">Please Enter a valid To Place!</span>
+            <div *ngIf="!tripAddForm.get('toPlace').valid && tripAddForm.get('toPlace').touched" class="alert alert-danger">Please Enter a valid To Place!</div>
         </div>
         <div class="form-group">
             <input type="date" class="form-control" placeholder="Enter Departure Date" formControlName="departureDate">
-            <span *ngIf="!tripAddForm.get('departureDate').valid && tripAddForm.get('departureDate').touched" class="help-block red">Please Enter a valid Departure Date!</span>
+            <div *ngIf="!tripAddForm.get('departureDate').valid && tripAddForm.get('departureDate').touched" class="alert alert-danger">Please Enter a valid Departure Date!</div>
         </div>
         <div class="form-group">
             <input type="date" class="form-control" placeholder="Enter Arrival Date" formControlName="arrivalDate">
-            <span *ngIf="!tripAddForm.get('arrivalDate').valid && tripAddForm.get('arrivalDate').touched" class="help-block red">Please Enter a valid Arrival Date!</span>
+            <div *ngIf="!tripAddForm.get('arrivalDate').valid && tripAddForm.get('arrivalDate').touched" class="alert alert-danger">Please Enter a valid Arrival Date!</div>
         </div>
     </form>
 </mat-dialog-content>
