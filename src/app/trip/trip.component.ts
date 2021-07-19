@@ -72,4 +72,10 @@ export class TripComponent implements OnInit {
   addFlight(index: number) {
     this.tripService.addFlight(this.approvedTrips[index]).subscribe(() => {});
   }
+
+  isEmpty() {
+    if(this.trips.length == 0) {
+      return true;
+    } else return false;
+  }
 }

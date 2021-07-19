@@ -35,6 +35,9 @@
                 </tr>
               </tbody>
             </table>
+            <div *ngIf="isEmpty()" class="alert alert-info text-center" style="margin: 20px;">
+              <strong>Info!</strong> No Trips In The List!
+            </div> 
             <hr>
             <button class="btn btn-primary" (click)="newTrip()">Add Trip!</button>
           </div>

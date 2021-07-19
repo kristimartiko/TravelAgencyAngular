@@ -28,9 +28,9 @@ export class LoginComponent implements OnInit {
       let token = JSON.parse(JSON.stringify(response));
       localStorage.setItem('token', token.jwt);
       localStorage.setItem('name', token.firstName);
+      this.router.navigate(['/home']);
     }, (error: any) => {
       this.error = "Invalid Email/Password";
-      
     })
   }
 
