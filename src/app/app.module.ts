@@ -20,6 +20,7 @@ import { TripsmanagmentComponent } from './admin/tripsmanagment/tripsmanagment.c
 import { AddTripComponent } from './trip/add-trip/add-trip.component';
 import { EditTripComponent } from './trip/edit-trip/edit-trip.component';
 import { FlightComponent } from './flight/flight.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { FlightComponent } from './flight/flight.component';
     TripsmanagmentComponent,
     AddTripComponent,
     EditTripComponent,
-    FlightComponent
+    FlightComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
