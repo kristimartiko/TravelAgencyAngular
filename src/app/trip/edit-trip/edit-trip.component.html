@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter From Place" formControlName="fromPlace">
-            <span *ngIf="!tripEditForma.get('fromPlace').valid && tripEditForm.get('fromPlace').touched" class="help-block red">Please Enter a valid From Place!</span>
+            <span *ngIf="!tripEditForm.get('fromPlace').valid && tripEditForm.get('fromPlace').touched" class="help-block red">Please Enter a valid From Place!</span>
         </div>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter To Place" formControlName="toPlace"> 
@@ -30,7 +30,7 @@
             <span *ngIf="!tripEditForm.get('departureDate').valid && tripEditForm.get('departureDate').touched" class="help-block red">Please Enter a valid Departure Date!</span>
         </div>
         <div class="form-group">
-            <input type="date" class="form-control" placeholder="Enter Arrival Date" formControlName="arrivaleDate">
+            <input type="date" class="form-control" placeholder="Enter Arrival Date" formControlName="arrivalDate">
             <span *ngIf="!tripEditForm.get('arrivalDate').valid && tripEditForm.get('arrivalDate').touched" class="help-block red">Please Enter a valid Arrival Date!</span>
         </div>
     </form>
