@@ -8,12 +8,12 @@
             </button>
             <a class="navbar-brand"><span style="color: rgb(21, 149, 231);">Travel</span> Agency</a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse"  *ngIf="getLogInState()">
             <ul class="nav navbar-nav navbar-right">
                 <li class="smoothScroll" routerLinkActive="active"><a routerLink="/home">Home</a></li>
                 <li class="smoothScroll" routerLinkActive="active"><a routerLink="/trips">Trips</a></li>
                 <li class="smoothScroll" routerLinkActive="active"><a routerLink="/flights">Flights</a></li>
-                <li *ngIf="getLogInState()"><a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;"><i class="glyphicon glyphicon-th-list"></i></a>
+                <li><a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;"><i class="glyphicon glyphicon-th-list"></i></a>
                     <ul class="dropdown-menu">   
                             <li><a (click)="navLogOut()" routerLink="/home">LogOut <span class="glyphicon glyphicon-log-out"></span></a></li>
                             <li><a routerLink="/admin/users">Manage Users</a></li>
