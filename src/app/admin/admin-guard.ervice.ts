@@ -7,7 +7,7 @@ import { CanActivate ,
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 
 export class AdminGuard implements CanActivate {
 
