@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -10,7 +11,10 @@ import { AuthService } from '../auth.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  constructor(private authService: AuthService) { }
+  error: String;
+
+  constructor(private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -24,6 +28,8 @@ export class LoginComponent implements OnInit {
       let token = JSON.parse(JSON.stringify(response));
       localStorage.setItem('token', token.jwt);
       localStorage.setItem('name', token.firstName);
+    }, (error: any) => {
+      this.error = "Invalid Email/Password";
       
     })
   }

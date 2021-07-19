@@ -19,5 +19,8 @@
                 <button mat-raised-button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!loginForm.valid">Log in</button>
             </div>
         </form>
+        <div class="alert alert-danger" *ngIf="error != null">
+            <span >{{ error }}</span>
+        </div>
     <br>
 </div>
