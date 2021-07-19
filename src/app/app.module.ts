@@ -19,6 +19,7 @@ import { AddUserComponent } from './admin/usermanagment/add-user/add-user.compon
 import { TripsmanagmentComponent } from './admin/tripsmanagment/tripsmanagment.component';
 import { AddTripComponent } from './trip/add-trip/add-trip.component';
 import { EditTripComponent } from './trip/edit-trip/edit-trip.component';
+import { FlightComponent } from './flight/flight.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { EditTripComponent } from './trip/edit-trip/edit-trip.component';
     AddUserComponent,
     TripsmanagmentComponent,
     AddTripComponent,
-    EditTripComponent
+    EditTripComponent,
+    FlightComponent
   ],
   imports: [
     BrowserModule,

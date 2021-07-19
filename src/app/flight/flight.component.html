@@ -1,0 +1,34 @@
+<body>
+    <div class="container">
+           <div class="whiteDiv">
+             <div>
+               <div style="border-bottom: dotted 2px rgb(175, 175, 175); text-align: left;">
+                 <h1 class="top-text"><span style="color: rgb(21, 149, 231) ;">Your</span> Flights</h1>
+               </div>
+             </div>
+             <div class="table-style">
+               <table class="table table-hover">
+                 <thead>
+                   <tr>
+                     <th scope="col"><b>#</b></th>
+                     <th scope="col">From Place</th>
+                     <th scope="col">To Place</th>
+                     <th scope="col">Departure Date</th>
+                     <th scope="col">Arrival Date</th>
+                     <th scope="col"></th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr *ngFor="let flight of flights; let i = index">
+                     <td><b>{{ i + 1 }}</b></td>
+                     <td>{{ flight.fromPlace }}</td>
+                     <td>{{ flight.toPlace }}</td>
+                     <td>{{ flight.departureDate }}</td>
+                     <td>{{ flight.arrivalDate }}</td>
+                   </tr>
+                 </tbody>
+               </table>
+             </div>
+           </div>
+        </div>
+    </body>
