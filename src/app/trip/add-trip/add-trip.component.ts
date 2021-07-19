@@ -12,8 +12,10 @@ export class AddTripComponent implements OnInit {
 
   tripAddForm: FormGroup;
 
-  constructor(private tripService: TripService,
-    private matDialogRef: MatDialogRef<AddTripComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public trip: any,
+   private tripService: TripService,
+    private matDialogRef: MatDialogRef<AddTripComponent>) {
+      console.log('test') }
 
   ngOnInit(): void {
     this.tripAddForm = new FormGroup({
@@ -27,6 +29,8 @@ export class AddTripComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.tripAddForm.value)
+    console.log(this.tripAddForm)
     this.tripService.addTrip(this.tripAddForm.value).subscribe(() => {
       this.matDialogRef.close(true);
     })
