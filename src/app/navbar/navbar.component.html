@@ -13,11 +13,11 @@
                 <li class="smoothScroll" routerLinkActive="active"><a routerLink="/home">Home</a></li>
                 <li class="smoothScroll" routerLinkActive="active"><a routerLink="/trips">Trips</a></li>
                 <li class="smoothScroll" routerLinkActive="active"><a>Flights</a></li>
-                <li><a routerLink="/admin/users">Menaxho Perdoruesit</a></li>
-                <li><a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;"><i class="glyphicon glyphicon-th-list"></i></a>
+                <li *ngIf="getLogInState()"><a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;"><i class="glyphicon glyphicon-th-list"></i></a>
                     <ul class="dropdown-menu">   
-                            <li><a  routerLink="/home">LogOut <span class="glyphicon glyphicon-log-out"></span></a></li>
-                            
+                            <li><a (click)="navLogOut()" routerLink="/home">LogOut <span class="glyphicon glyphicon-log-out"></span></a></li>
+                            <li><a routerLink="/admin/users">Manage Users</a></li>
+                            <li><a routerLink="/admin/trips">Manage Approvals</a></li>
                     </ul></li>
             </ul>
         </div>
