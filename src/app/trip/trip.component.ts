@@ -4,8 +4,7 @@ import { AddTripComponent } from './add-trip/add-trip.component';
 import { EditTripComponent } from './edit-trip/edit-trip.component';
 import { Trip } from './trip.module';
 import { TripService } from './trip.service';
-import { NgForm } from '@angular/forms';
-import { TripStatusEnum } from '../shared/tripStatusEnum.module';
+
 
 @Component({
   selector: 'app-trip',
@@ -65,7 +64,9 @@ export class TripComponent implements OnInit {
   }
 
   sendApprove(index: number) {
-    this.tripService.sendApprove(this.trips[index]).subscribe(() => {});
+    this.tripService.sendApprove(this.trips[index]).subscribe(() => {
+      this.trips.splice(index, 1);
+    });
   }
 
   addFlight(index: number) {

@@ -19,11 +19,15 @@ export class TripsmanagmentComponent implements OnInit {
   }
 
   approveTrip(index: number) {
-    this.tripService.approveTrip(this.trips[index]).subscribe(() => {});
+    this.tripService.approveTrip(this.trips[index]).subscribe(() => {
+      this.trips.splice(index, 1);
+    });
   }
 
   declineTrip(index: number) {
-    this.tripService.declineTrip(this.trips[index]).subscribe(() => {});
+    this.tripService.declineTrip(this.trips[index]).subscribe(() => {
+      this.trips.splice(index, 1);
+    });
   }
 
 }
