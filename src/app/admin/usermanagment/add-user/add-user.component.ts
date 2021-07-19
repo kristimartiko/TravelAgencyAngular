@@ -11,6 +11,7 @@ import { UsermanagmentService } from '../usermanagment.service';
 export class AddUserComponent implements OnInit {
 
   userAddForm: FormGroup;
+  error1: String;
 
   constructor(@Inject(MAT_DIALOG_DATA) public user: any,
   private usermanagmentService: UsermanagmentService,
@@ -28,7 +29,10 @@ export class AddUserComponent implements OnInit {
   onSubmit() {
     this.usermanagmentService.addUser(this.userAddForm.value).subscribe(() => {
       this.matDialogRef.close(true);
-    })
+    }, (error: any) => {
+      this.error1 = "Oops, user with this email already exists !";
+    }
+    );
   }
 
   onClose() {
