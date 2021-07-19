@@ -4,6 +4,8 @@ import { AddTripComponent } from './add-trip/add-trip.component';
 import { EditTripComponent } from './edit-trip/edit-trip.component';
 import { Trip } from './trip.module';
 import { TripService } from './trip.service';
+import { NgForm } from '@angular/forms';
+import { TripStatusEnum } from '../shared/tripStatusEnum.module';
 
 @Component({
   selector: 'app-trip',
@@ -13,6 +15,7 @@ import { TripService } from './trip.service';
 export class TripComponent implements OnInit {
 
   trips: Trip[] = [];
+  approvedTrips: Trip[] = [];
   
   constructor(private tripService: TripService,
     private dialog: MatDialog) { }
@@ -20,6 +23,9 @@ export class TripComponent implements OnInit {
   ngOnInit(): void {
     this.tripService.getTrips().subscribe((trips: Trip[]) => {
       this.trips = trips;
+    })
+    this.tripService.getApprovedTrips().subscribe((trips: Trip[]) => {
+      this.approvedTrips = trips;
     })
   }
 
@@ -58,4 +64,11 @@ export class TripComponent implements OnInit {
     });
   }
 
+  sendApprove(index: number) {
+    this.tripService.sendApprove(this.trips[index]).subscribe(() => {});
+  }
+
+  addFlight(index: number) {
+    this.tripService.addFlight(this.approvedTrips[index]).subscribe(() => {});
+  }
 }
