@@ -29,4 +29,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  isAdmin() {
+    if(this.authService.getAdmin() == true) {
+      return true;
+    } return false;
+  }
+
 }

@@ -1,10 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  private helper = new JwtHelperService();
 
   constructor(private http: HttpClient) { }
 
@@ -29,5 +32,18 @@ export class AuthService {
     if(localStorage.getItem('token') !== null) {
       return true;
     } else return false;
+  }
+
+  getAdmin() {
+    if(localStorage.getItem('token') !== null) {
+      let token = localStorage.getItem("token");
+      let tokenPayload = this.helper.decodeToken(token);
+      let role = JSON.parse(JSON.stringify(tokenPayload.role[0].authority));
+
+      if(!this.helper.isTokenExpired(token) && role === 'Admin') {
+        return true;
+      }
+    }
+    return false;
   }
 }

@@ -16,8 +16,8 @@
                 <li><a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer;"><i class="glyphicon glyphicon-th-list"></i></a>
                     <ul class="dropdown-menu">   
                             <li><a (click)="navLogOut()" routerLink="/home">LogOut <span class="glyphicon glyphicon-log-out"></span></a></li>
-                            <li><a routerLink="/admin/users">Manage Users</a></li>
-                            <li><a routerLink="/admin/trips">Manage Approvals</a></li>
+                            <li *ngIf="isAdmin()"><a routerLink="/admin/users">Manage Users</a></li>
+                            <li *ngIf="isAdmin()"><a routerLink="/admin/trips">Manage Approvals</a></li>
                     </ul></li>
             </ul>
         </div>
