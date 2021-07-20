@@ -84,4 +84,11 @@ export class TripComponent implements OnInit {
       return true;
     } return false;
   }
+
+  isApproved(index: number) {
+    if("APPROVED" == this.status[index]) {
+      return true;
+    }
+    return false;
+  }
 }

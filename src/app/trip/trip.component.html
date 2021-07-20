@@ -32,7 +32,7 @@
                   <td><a style="cursor: pointer;" (click)="editTrip(trip)" *ngIf="isCreated(i)"><span class="glyphicon glyphicon-edit"></span></a></td>
                   <td><a style="cursor: pointer;" (click)="deleteTrip(i)"><span class="glyphicon glyphicon-trash"></span></a></td>
                   <td *ngIf="isCreated(i)"><button  class="btn btn-primary btn-xs" (click)="sendApprove(i)" >Send Approval!</button></td>
-                  <td *ngIf="!isCreated(i)"><button class="btn btn-success btn-xs" (click)="addFlight(i)">Add Flight!</button></td>
+                  <td *ngIf="isApproved(i)"><button class="btn btn-success btn-xs" (click)="addFlight(i)">Add Flight!</button></td>
                 </tr>
               </tbody>
             </table>
