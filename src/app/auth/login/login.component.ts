@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   error: String;
 
   constructor(private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -29,6 +31,9 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', token.jwt);
       localStorage.setItem('name', token.firstName);
       this.router.navigate(['/home']);
+      this.snackBar.open('Succssfully Logged In!', '', {
+        duration: 3000
+      })
     }, (error: any) => {
       this.error = "Invalid Email/Password";
     })
