@@ -5,7 +5,7 @@
         <div class="form-group">
             <label for="reason">Trip Reason: </label>
             <select formControlName="tripReason">
-                <option value="Meeting">Meeting</option>
+                <option value="Meeting" selected>Meeting</option>
                 <option value="Training">Training</option>
                 <option value="Project">Project</option>
                 <option value="Workshop">Workshop</option>
@@ -14,22 +14,27 @@
             </select>
         </div>
         <div class="form-group">
+            <label for="tripDescription">Trip Description: </label>
             <input type="text" class="form-control" placeholder="Enter Trip Description" formControlName="tripDescription">
             <span *ngIf="!tripEditForm.get('tripDescription').valid && tripEditForm.get('tripDescription').touched" class="help-block red">Please Enter a valid Description!</span>
         </div>
         <div class="form-group">
+            <label for="fromPlace">From Place: </label>
             <input type="text" class="form-control" placeholder="Enter From Place" formControlName="fromPlace">
             <span *ngIf="!tripEditForm.get('fromPlace').valid && tripEditForm.get('fromPlace').touched" class="help-block red">Please Enter a valid From Place!</span>
         </div>
         <div class="form-group">
+            <label for="toPlace">To Place: </label>
             <input type="text" class="form-control" placeholder="Enter To Place" formControlName="toPlace"> 
             <span *ngIf="!tripEditForm.get('toPlace').valid && tripEditForm.get('toPlace').touched" class="help-block red">Please Enter a valid To Place!</span>
         </div>
         <div class="form-group">
+            <label for="departureDate">Departure Date: </label>
             <input type="date" class="form-control" placeholder="Enter Departure Date" formControlName="departureDate">
             <span *ngIf="!tripEditForm.get('departureDate').valid && tripEditForm.get('departureDate').touched" class="help-block red">Please Enter a valid Departure Date!</span>
         </div>
         <div class="form-group">
+            <label for="arrivalDate">Arrival Date: </label>
             <input type="date" class="form-control" placeholder="Enter Arrival Date" formControlName="arrivalDate">
             <span *ngIf="!tripEditForm.get('arrivalDate').valid && tripEditForm.get('arrivalDate').touched" class="help-block red">Please Enter a valid Arrival Date!</span>
         </div>
