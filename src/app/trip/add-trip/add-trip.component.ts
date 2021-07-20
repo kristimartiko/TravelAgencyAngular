@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { TripService } from '../trip.service';
 
 @Component({
@@ -14,8 +15,8 @@ export class AddTripComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public trip: any,
    private tripService: TripService,
-    private matDialogRef: MatDialogRef<AddTripComponent>) {
-      console.log('test') }
+    private matDialogRef: MatDialogRef<AddTripComponent>,
+    private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.tripAddForm = new FormGroup({
@@ -29,11 +30,12 @@ export class AddTripComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.tripAddForm.value)
-    console.log(this.tripAddForm)
     this.tripService.addTrip(this.tripAddForm.value).subscribe(() => {
       this.matDialogRef.close(true);
-    })
+    });
+    this.snackBar.open('You Added A New Trip In The List', '', {
+      duration: 3000
+    });
   }
 
   onClose() {
