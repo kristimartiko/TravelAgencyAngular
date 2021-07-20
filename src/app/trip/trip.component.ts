@@ -14,7 +14,6 @@ import { TripService } from './trip.service';
 export class TripComponent implements OnInit {
 
   trips: Trip[] = [];
-  status: String[] = [];
   
   constructor(private tripService: TripService,
     private dialog: MatDialog) { }
@@ -62,7 +61,7 @@ export class TripComponent implements OnInit {
 
   sendApprove(index: number) {
     this.tripService.sendApprove(this.trips[index]).subscribe(() => {
-      this.trips.splice(index, 1);
+      window.location.reload();
     });
   }
 
@@ -77,16 +76,13 @@ export class TripComponent implements OnInit {
   }
 
   isCreated(index: number) {
-    for(let trip of this.trips) {
-      this.status.push(trip.status)
-    }
-    if("CREATED" == this.status[index]) {
+    if("CREATED" == this.trips[index].status) {
       return true;
     } return false;
   }
 
   isApproved(index: number) {
-    if("APPROVED" == this.status[index]) {
+    if("APPROVED" == this.trips[index].status) {
       return true;
     }
     return false;
