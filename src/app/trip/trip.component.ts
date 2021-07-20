@@ -14,7 +14,7 @@ import { TripService } from './trip.service';
 export class TripComponent implements OnInit {
 
   trips: Trip[] = [];
-  approvedTrips: Trip[] = [];
+  status: String[] = [];
   
   constructor(private tripService: TripService,
     private dialog: MatDialog) { }
@@ -22,9 +22,6 @@ export class TripComponent implements OnInit {
   ngOnInit(): void {
     this.tripService.getTrips().subscribe((trips: Trip[]) => {
       this.trips = trips;
-    })
-    this.tripService.getApprovedTrips().subscribe((trips: Trip[]) => {
-      this.approvedTrips = trips;
     })
   }
 
@@ -70,7 +67,7 @@ export class TripComponent implements OnInit {
   }
 
   addFlight(index: number) {
-    this.tripService.addFlight(this.approvedTrips[index]).subscribe(() => {});
+    this.tripService.addFlight(this.trips[index]).subscribe(() => {});
   }
 
   isEmpty() {
@@ -80,8 +77,11 @@ export class TripComponent implements OnInit {
   }
 
   isCreated(index: number) {
-    this.tripService.getStatus(this.trips[index]).subscribe(response => {
-      console.log(response);
-    }) 
+    for(let trip of this.trips) {
+      this.status.push(trip.status)
+    }
+    if("CREATED" == this.status[index]) {
+      return true;
+    } return false;
   }
 }

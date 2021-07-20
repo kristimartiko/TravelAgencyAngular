@@ -14,10 +14,6 @@ export class TripService {
     return this.http.get("http://localhost:8787/trips");
   }
 
-  getApprovedTrips() {
-    return this.http.get("http://localhost:8787/approvedTrips");
-  }
-
   updateTrip(trip: Trip) {
     return this.http.put(`http://localhost:8787/updateTrip${trip.tripId}`, trip);
   }
@@ -52,7 +48,4 @@ export class TripService {
     return this.http.get(`http://localhost:8787/declineTrip${trip.tripId}`);
   }
 
-  getStatus(trip: Trip) {
-    return this.http.get(`http://localhost:8787/status${trip.tripId}`);
-  }
 }

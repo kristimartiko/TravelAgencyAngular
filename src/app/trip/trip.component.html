@@ -29,9 +29,10 @@
                   <td>{{ trip.toPlace }}</td>
                   <td>{{ trip.departureDate }}</td>
                   <td>{{ trip.arrivalDate }}</td>
-                  <td><a style="cursor: pointer;" (click)="editTrip(trip)"><span class="glyphicon glyphicon-edit"></span></a></td>
+                  <td><a style="cursor: pointer;" (click)="editTrip(trip)" *ngIf="isCreated(i)"><span class="glyphicon glyphicon-edit"></span></a></td>
                   <td><a style="cursor: pointer;" (click)="deleteTrip(i)"><span class="glyphicon glyphicon-trash"></span></a></td>
-                  <td ><button class="btn btn-primary btn-xs" (click)="sendApprove(i)">Send Approval!</button></td>
+                  <td *ngIf="isCreated(i)"><button  class="btn btn-primary btn-xs" (click)="sendApprove(i)" >Send Approval!</button></td>
+                  <td *ngIf="!isCreated(i)"><button class="btn btn-success btn-xs" (click)="addFlight(i)">Add Flight!</button></td>
                 </tr>
               </tbody>
             </table>
@@ -42,41 +43,5 @@
             <button class="btn btn-primary" (click)="newTrip()">Add Trip!</button>
           </div>
         </div>
-
-        <div class="whiteDiv">
-          <div>
-            <div style="border-bottom: dotted 2px rgb(175, 175, 175); text-align: left;">
-              <h1 class="top-text"><span style="color: rgb(21, 149, 231) ;">Approved</span> Trips</h1>
-            </div>
-          </div>
-          <div class="table-style">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col"><b>#</b></th>
-                  <th scope="col">Trip Reason</th>
-                  <th scope="col">Trip Description</th>
-                  <th scope="col">From Place</th>
-                  <th scope="col">To Place</th>
-                  <th scope="col">Departure Date</th>
-                  <th scope="col">Arrival Date</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let trip of approvedTrips; let i = index">
-                  <td><b>{{ i + 1 }}</b></td>
-                  <td>{{ trip.tripReason }}</td>
-                  <td>{{ trip.tripDescription }}</td>
-                  <td>{{ trip.fromPlace }}</td>
-                  <td>{{ trip.toPlace }}</td>
-                  <td>{{ trip.departureDate }}</td>
-                  <td>{{ trip.arrivalDate }}</td>
-                  <td ><button class="btn btn-success btn-xs" (click)="addFlight(i)">Add Flight!</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-</div>
+  </div>
 </body>

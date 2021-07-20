@@ -7,6 +7,7 @@ export class Trip {
     public departureDate: Date;
     public arrivalDate: Date;
     public user_id: number;
+    public status: string;
 
     constructor(tripReason: string, tripDescription: string, fromPlace: string, toPlace: string, departureDate: Date, arrivalDate: Date) {
         this.tripReason = tripReason;
