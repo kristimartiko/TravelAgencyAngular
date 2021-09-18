@@ -30,12 +30,18 @@ export class AddTripComponent implements OnInit {
   }
 
   onSubmit() {
+    if(this.tripAddForm.controls['arrivalDate'].value <= this.tripAddForm.controls['departureDate'].value) {
+      this.snackBar.open("Arrival Date can not be before or the same date Departure Date!", '', {
+        duration: 3000
+      });
+    } else {
     this.tripService.addTrip(this.tripAddForm.value).subscribe(() => {
       this.matDialogRef.close(true);
     });
     this.snackBar.open('You Added A New Trip In The List', '', {
       duration: 3000
     });
+    }
   }
 
   onClose() {
